@@ -17,6 +17,9 @@
   <!-- Display font (Bebas Neue, athletic editorial) + Body (Inter) -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Tally embed (popup form) -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
   <style>
     :root {
       --navy: #0B2545;
@@ -561,7 +564,7 @@
       <a href="#report">Report</a>
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
-      <a href="#form">Get yours</a>
+      <a href="#form" data-tally-open="ja59AE" data-tally-layout="modal" data-tally-overlay="1">Get yours</a>
     </div>
   </div>
 </header>
@@ -576,7 +579,7 @@
           <h1 class="hero-headline">WE WATCH THE TAPE NO ONE ELSE WATCHES.</h1>
           <p class="subhead">A free Football Positioning Report for college players who are better than the world thinks. Built by football people, not NIL marketers.</p>
           <div class="cta-row">
-            <a href="#form" class="btn">Get my free report</a>
+            <a href="#form" class="btn" data-tally-open="ja59AE" data-tally-layout="modal" data-tally-overlay="1">Get my free report</a>
             <span class="meta-line">4 pages · hand-finished · 48 hours</span>
           </div>
           <div class="stats-strip">
@@ -757,14 +760,9 @@
           If you submit your tape and we don't think we can write you a useful report, we'll email you and tell you that — and we won't add you to any sequence. Free always means free here.
         </div>
       </div>
-      <div class="form-embed">
-        <!-- TALLY EMBED GOES HERE -->
-        <!-- Replace the placeholder div below with your Tally embed code from tally.so -->
-        <div class="form-embed-placeholder">
-          <p style="margin: 0 0 8px; font-weight: 600; color: var(--navy);">Form embed slot</p>
-          <p style="margin: 0;">Paste your Tally embed code in <code>index.html</code> where this placeholder lives (search for <code>TALLY EMBED GOES HERE</code>).</p>
-        </div>
-        <!-- END TALLY EMBED -->
+      <div class="form-embed" style="text-align:center;">
+        <a href="#form" class="btn" data-tally-open="ja59AE" data-tally-layout="modal" data-tally-overlay="1" style="font-size: 18px; padding: 18px 32px;">Start my free report →</a>
+        <p style="margin: 14px 0 0; font-size: 14px; color: var(--muted);">Opens a 6-minute form. No card. No catch.</p>
       </div>
     </div>
   </section>
@@ -787,7 +785,7 @@
 
 <!-- Sticky mobile CTA -->
 <div class="sticky-mobile-cta">
-  <a href="#form">GET MY FREE REPORT →</a>
+  <a href="#form" data-tally-open="ja59AE" data-tally-layout="modal" data-tally-overlay="1">GET MY FREE REPORT →</a>
 </div>
 
 <script>
