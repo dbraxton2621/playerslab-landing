@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Players Lab Mgmt — Free Football Positioning Report</title>
+  <meta name="description" content="A free Football Positioning Report for college players who are better than the world thinks. Tape over narratives. Powered by BIP's List film grading." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Football Positioning Report — Players Lab Mgmt" />
+  <meta property="og:description" content="Tape over narratives. A 4-page hand-finished report on your tape, brand, and positioning. 48-hour turnaround." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://playerslabmgmt.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Display font (Bebas Neue, athletic editorial) + Body (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0B2545;
+      --navy-deep: #061833;
+      --accent: #13315C;
+      --field-green: #1F6B3A;
+      --field-green-bright: #2BA866;
+      --light: #EEF2F7;
+      --row-alt: #F7F9FC;
+      --dark: #0F1419;
+      --mid: #4A5568;
+      --soft: #8895A7;
+      --line: #E2E8F0;
+      --line-strong: #CBD5E0;
+      --warn: #B8860B;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      color: var(--dark);
+      line-height: 1.55;
+      background: #fff;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
+    a:hover { color: var(--navy); text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-tight { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* Display headlines (Bebas) */
+    .display {
+      font-family: 'Bebas Neue', 'Inter', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+    }
+
+    /* Header */
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(255, 255, 255, 0.92);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; }
+    .brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+    }
+    .brand .accent { color: var(--field-green); }
+    .nav-links { font-size: 14px; color: var(--soft); }
+    .nav-links a { color: var(--soft); margin-left: 22px; font-weight: 500; }
+    .nav-links a:hover { color: var(--navy); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 56px;
+      background: linear-gradient(180deg, #fff 0%, var(--row-alt) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--field-green);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      padding: 7px 14px;
+      background: #E6F2EC;
+      border-radius: 20px;
+    }
+    .eyebrow::before { content: "▎"; margin-right: 6px; color: var(--field-green); }
+
+    h1.hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 76px;
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      color: var(--navy);
+      line-height: 0.92;
+      margin: 0 0 22px;
+    }
+    .subhead {
+      font-size: 19px;
+      color: var(--mid);
+      margin: 0 0 32px;
+      line-height: 1.5;
+      max-width: 540px;
+      font-weight: 400;
+    }
+    .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 28px; }
+    .btn {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 14px rgba(11, 37, 69, 0.18);
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover {
+      background: var(--navy-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(11, 37, 69, 0.28);
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn:active { transform: translateY(0); }
+
+    .meta-line { font-size: 14px; color: var(--soft); }
+
+    /* Stats strip */
+    .stats-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 16px 22px;
+      background: rgba(11, 37, 69, 0.04);
+      border-left: 3px solid var(--field-green);
+      border-radius: 0 6px 6px 0;
+      max-width: 540px;
+    }
+    .stat { font-size: 13px; color: var(--mid); }
+    .stat strong { color: var(--navy); display: block; font-size: 20px; line-height: 1.1; font-family: 'Bebas Neue'; letter-spacing: 0.02em; }
+
+    /* Sample report mockup */
+    .report-mockup {
+      background: #fff;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      box-shadow: 0 18px 50px rgba(11, 37, 69, 0.14), 0 4px 12px rgba(11, 37, 69, 0.08);
+      padding: 28px 26px;
+      transform: rotate(-1.5deg);
+      position: relative;
+    }
+    .report-mockup::before {
+      content: "SAMPLE";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-family: 'Bebas Neue';
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--soft);
+      background: var(--row-alt);
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .report-mockup .rm-eyebrow {
+      font-family: 'Bebas Neue'; font-size: 12px; letter-spacing: 0.18em; color: var(--field-green);
+    }
+    .report-mockup .rm-name {
+      font-family: 'Bebas Neue'; font-size: 30px; line-height: 1; color: var(--navy); margin: 6px 0 14px;
+    }
+    .report-mockup .rm-row {
+      display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--mid);
+    }
+    .report-mockup .rm-row:last-of-type { border-bottom: none; }
+    .report-mockup .rm-row .rm-val { color: var(--navy); font-weight: 600; }
+    .report-mockup .rm-section {
+      margin-top: 16px; padding-top: 14px; border-top: 2px solid var(--navy);
+    }
+    .report-mockup .rm-section-h {
+      font-family: 'Bebas Neue'; font-size: 15px; letter-spacing: 0.1em; color: var(--navy); margin-bottom: 8px;
+    }
+    .report-mockup .rm-bar {
+      height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin: 4px 0 14px;
+    }
+    .report-mockup .rm-bar-fill {
+      height: 100%; width: 64%; background: linear-gradient(90deg, var(--field-green) 0%, var(--field-green-bright) 100%);
+    }
+    .report-mockup .rm-bar-label {
+      display: flex; justify-content: space-between; font-size: 12px; color: var(--mid); margin-bottom: 2px;
+    }
+    .report-mockup .rm-bar-label strong { color: var(--field-green); font-family: 'Bebas Neue'; letter-spacing: 0.1em; font-size: 14px; font-weight: 400; }
+    .report-mockup ul { padding-left: 18px; margin: 6px 0 0; font-size: 13px; color: var(--mid); line-height: 1.5; }
+    .report-mockup ul li { margin-bottom: 3px; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    section.alt { background: var(--row-alt); }
+    section.dark { background: var(--navy); color: #fff; }
+    h2.section-h {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    section.dark h2.section-h { color: #fff; }
+    .section-sub {
+      font-size: 17px;
+      color: var(--mid);
+      margin: 0 0 32px;
+      max-width: 640px;
+    }
+    section.dark .section-sub { color: rgba(255,255,255,0.78); }
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 24px 0 8px;
+    }
+    p { margin: 0 0 14px; color: var(--dark); }
+
+    /* Who it's for */
+    .player-types {
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .player-types li {
+      padding: 24px 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--navy);
+      border-radius: 4px 4px 10px 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .player-types li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(11, 37, 69, 0.08);
+    }
+    .player-types strong {
+      font-family: 'Bebas Neue';
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1.05;
+    }
+    .player-types span { color: var(--mid); font-size: 15px; }
+
+    /* What's in the report */
+    .report-list { padding-left: 0; list-style: none; counter-reset: rl; max-width: 720px; }
+    .report-list li {
+      counter-increment: rl;
+      position: relative;
+      padding: 16px 0 16px 56px;
+      border-bottom: 1px solid var(--line);
+      color: var(--dark);
+      font-size: 16px;
+    }
+    .report-list li:last-child { border-bottom: none; }
+    .report-list li::before {
+      content: counter(rl, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 38px;
+      font-family: 'Bebas Neue';
+      letter-spacing: 0.05em;
+      color: var(--field-green);
+      font-size: 22px;
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .step {
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .step .step-num {
+      font-family: 'Bebas Neue';
+      font-size: 30px;
+      letter-spacing: 0.04em;
+      color: var(--field-green);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .step strong {
+      display: block;
+      color: var(--navy);
+      font-family: 'Bebas Neue';
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+      line-height: 1.05;
+    }
+    .step span { color: var(--mid); font-size: 15px; }
+
+    /* About */
+    .about-block {
+      background: #fff;
+      padding: 32px 36px;
+      border-radius: 10px;
+      border-left: 4px solid var(--navy);
+      max-width: 760px;
+    }
+    .about-block .quote {
+      font-family: 'Bebas Neue';
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      line-height: 1.15;
+    }
+
+    /* 10 reasons */
+    .ten-reasons { padding-left: 0; list-style: none; counter-reset: tr; max-width: 760px; }
+    .ten-reasons li {
+      counter-increment: tr;
+      position: relative;
+      padding: 14px 0 14px 64px;
+      border-bottom: 1px solid var(--line);
+      color: var(--dark);
+      font-size: 16px;
+    }
+    .ten-reasons li::before {
+      content: counter(tr, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 48px;
+      font-family: 'Bebas Neue';
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      font-size: 26px;
+    }
+
+    /* FAQ */
+    .faq { max-width: 760px; }
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .faq details:last-child { border-bottom: none; }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 17px;
+      padding-right: 30px;
+      position: relative;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: -2px;
+      font-size: 24px;
+      color: var(--field-green);
+      transition: transform 0.2s ease;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p {
+      margin-top: 12px;
+      color: var(--mid);
+      font-size: 16px;
+      max-width: 680px;
+    }
+
+    /* Form section */
+    .form-section { background: var(--navy); color: #fff; padding: 72px 0; }
+    .form-section h2 { color: #fff; }
+    .form-section .section-sub { color: rgba(255,255,255,0.78); }
+    .risk-reversal {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid var(--field-green-bright);
+      padding: 16px 20px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 24px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.5;
+    }
+    .risk-reversal strong { color: #fff; display: block; margin-bottom: 4px; font-family: 'Bebas Neue'; font-size: 17px; letter-spacing: 0.04em; }
+    .form-embed {
+      background: #fff;
+      border-radius: 10px;
+      padding: 28px;
+      margin-top: 8px;
+      min-height: 400px;
+      color: var(--dark);
+    }
+    .form-embed-placeholder {
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 15px;
+      border: 2px dashed var(--line);
+      border-radius: 6px;
+    }
+    .form-embed-placeholder code {
+      background: var(--row-alt);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 36px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    footer p { color: rgba(255,255,255,0.62); margin: 0 0 14px; }
+    footer .copyright {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    footer a { color: rgba(255,255,255,0.85); }
+    footer a:hover { color: #fff; }
+    .socials { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    /* Sticky mobile CTA */
+    .sticky-mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      padding: 12px 16px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.18);
+      z-index: 200;
+    }
+    .sticky-mobile-cta a {
+      display: block;
+      text-align: center;
+      background: var(--field-green-bright);
+      color: #fff;
+      padding: 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    /* Scroll-triggered fade */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Reduce motion respect */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      .player-types li:hover { transform: none; }
+      .btn:hover { transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .report-mockup { transform: none; max-width: 380px; margin: 0 auto; }
+      .player-types { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      h1.hero-headline { font-size: 56px; }
+      h2.section-h { font-size: 36px; }
+      .hero { padding: 48px 0 36px; }
+      section { padding: 48px 0; }
+      .container, .container-tight { padding: 0 20px; }
+      header { padding: 16px 0; }
+      .nav-links a { margin-left: 14px; font-size: 13px; }
+      .stats-strip { gap: 16px; }
+      .sticky-mobile-cta { display: block; }
+      footer { padding-bottom: 90px; }
+    }
+    @media (max-width: 400px) {
+      h1.hero-headline { font-size: 48px; }
+      h2.section-h { font-size: 30px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">PLAYERS LAB <span class="accent">MGMT</span></div>
+    <div class="nav-links">
+      <a href="#report">Report</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#form">Get yours</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Tape over narratives</div>
+          <h1 class="hero-headline">WE WATCH THE TAPE NO ONE ELSE WATCHES.</h1>
+          <p class="subhead">A free Football Positioning Report for college players who are better than the world thinks. Built by football people, not NIL marketers.</p>
+          <div class="cta-row">
+            <a href="#form" class="btn">Get my free report</a>
+            <span class="meta-line">4 pages · hand-finished · 48 hours</span>
+          </div>
+          <div class="stats-strip">
+            <div class="stat"><strong>4 PG</strong>Hand-finished report</div>
+            <div class="stat"><strong>48H</strong>Turnaround</div>
+            <div class="stat"><strong>$0</strong>No card. No catch.</div>
+          </div>
+        </div>
+
+        <!-- Sample report mockup (visual hero) -->
+        <div class="report-mockup fade-in">
+          <div class="rm-eyebrow">FOOTBALL POSITIONING REPORT</div>
+          <div class="rm-name">MARCUS A.</div>
+          <div class="rm-row"><span>Position</span><span class="rm-val">EDGE</span></div>
+          <div class="rm-row"><span>School</span><span class="rm-val">App State</span></div>
+          <div class="rm-row"><span>Class</span><span class="rm-val">Junior</span></div>
+          <div class="rm-row"><span>Conference</span><span class="rm-val">Sun Belt</span></div>
+          <div class="rm-section">
+            <div class="rm-section-h">NIL READINESS</div>
+            <div class="rm-bar-label"><span>Your band</span><strong>READY</strong></div>
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+          </div>
+          <div class="rm-section">
+            <div class="rm-section-h">EXPOSURE GAP</div>
+            <ul>
+              <li>Bio doesn't mention pass-rush production</li>
+              <li>Pinned post is a workout clip, not game tape</li>
+              <li>No highlight reel since week 7</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="alt fade-in">
+    <div class="container">
+      <h2 class="section-h">WHO IT'S FOR</h2>
+      <p class="section-sub">This report is built for three kinds of players. If that's you, the report will be useful. If it isn't, we'll tell you.</p>
+      <ul class="player-types">
+        <li>
+          <strong>G5 / FCS PRODUCERS</strong>
+          <span>Players who deserve more attention than their conference gets.</span>
+        </li>
+        <li>
+          <strong>BURIED POWER-4 CONTRIBUTORS</strong>
+          <span>The skillset to start somewhere — and the tape to prove it.</span>
+        </li>
+        <li>
+          <strong>YOUNG BREAKOUT PLAYERS</strong>
+          <span>FR / SO who flashed and need to package it before the world catches up.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- What's in the report -->
+  <section id="report" class="fade-in">
+    <div class="container">
+      <h2 class="section-h">WHAT'S IN THE 4-PAGE REPORT</h2>
+      <p class="section-sub">Hand-finished by a real football evaluator. No earnings projections, no NIL hype, no generic templates.</p>
+      <ol class="report-list">
+        <li>Player snapshot — measurables, role, season production</li>
+        <li>Brand &amp; social presence review — what's working, what isn't</li>
+        <li>NIL Readiness Score with a band label — Foundation, Building, Ready, Elite. Not a dollar figure.</li>
+        <li>Exposure Gap Analysis — three specific areas where your presence doesn't match your tape</li>
+        <li>Market positioning — your one-sentence story, the brand verticals that fit you</li>
+        <li>Five content ideas tied to your most recent games</li>
+        <li>Profile improvement notes — bio, pinned post, highlight order</li>
+        <li>A 30-day action plan you can run yourself</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="alt fade-in">
+    <div class="container">
+      <h2 class="section-h">HOW IT WORKS</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <strong>FILL OUT THE INTAKE</strong>
+          <span>About 6 minutes. Film link, social handles, two best games.</span>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <strong>WE WATCH AND WRITE</strong>
+          <span>Within 48 hours, you get a 4-page PDF in your inbox. Hand-finished by a real football evaluator.</span>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <strong>RUN IT YOURSELF — OR WITH US</strong>
+          <span>If you want help executing, book a 15-minute call. If you want to run it solo, the report is yours either way.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 reasons -->
+  <section id="reasons" class="fade-in">
+    <div class="container">
+      <h2 class="section-h">10 REASONS PLAYERS SEND US THEIR TAPE</h2>
+      <p class="section-sub">If any of these don't sound right to you, don't fill out the form. We'd rather be the right answer for the right player than the wrong answer for everyone.</p>
+      <ol class="ten-reasons">
+        <li>Hand-finished by a real football evaluator — not a template generated by AI.</li>
+        <li>Powered by BIP's List film grading. Every grade is signed off by a named analyst who watched every targeted snap.</li>
+        <li>Honest. We will tell you what's not working, not just what is.</li>
+        <li>4 pages. Not 30. We respect your time.</li>
+        <li>48-hour turnaround. Not weeks.</li>
+        <li>NIL Readiness Score uses band labels, not dollar figures — because numerical NIL projections are misleading.</li>
+        <li>Specific. Every observation is tied to something on your actual tape or your actual profile.</li>
+        <li>Compliance-aware. Reports include school NIL guidance and parent-consent flow for under-18 players.</li>
+        <li>No follow-up spam. Three emails over 7 days. Then nothing unless you ask.</li>
+        <li>Free. Always. No card. No upsell wall on the report itself.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="alt fade-in">
+    <div class="container">
+      <h2 class="section-h">ABOUT PLM</h2>
+      <div class="about-block">
+        <p>Players Lab Mgmt is a football-first athlete representation group. We evaluate film, understand scheme fit, and help college players make better positioning, NIL, and career decisions throughout the year. We don't chase headlines or top-ranked names — we find the players who are better than people realize and help them get seen.</p>
+        <p style="margin-bottom: 0;">Our evaluations are powered by <a href="https://www.bipslist.com" target="_blank" rel="noopener">BIP's List</a>, a film-graded scouting platform built on All-22 tape, written reports, and internal peer review.</p>
+        <div class="quote">"TAPE OVER NARRATIVES. IF WE HAVEN'T WATCHED THE TAPE, THE PLAYER ISN'T RANKED."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="fade-in">
+    <div class="container">
+      <h2 class="section-h">QUICK ANSWERS</h2>
+      <p class="section-sub">The questions we get most often, before you ask.</p>
+      <div class="faq">
+        <details>
+          <summary>Is this actually free?</summary>
+          <p>Yes. No card, no upsell on the report, no catch. We do this because most players who get a real report eventually want help executing it — and that's when we have a paid conversation. But the report itself is yours either way.</p>
+        </details>
+        <details>
+          <summary>How long does it take?</summary>
+          <p>48 hours from submission to delivery. Sometimes faster. We don't ship reports we haven't fully reviewed, so if we're behind, we'll tell you.</p>
+        </details>
+        <details>
+          <summary>Will you tell me my NIL value in dollars?</summary>
+          <p>No. Anyone who gives you a specific dollar value is making it up. NIL outcomes vary too much by state, school, conference, brand vertical, and timing. We use band labels (Foundation / Building / Ready / Elite) so you know where you stand without anyone making promises that can't be kept.</p>
+        </details>
+        <details>
+          <summary>I'm under 18 — can I still submit?</summary>
+          <p>Yes, but a parent or guardian needs to complete the consent step on the form. We email the report to your parent first, copying you. Standard practice for working with minors in NIL.</p>
+        </details>
+        <details>
+          <summary>What happens after I get the report?</summary>
+          <p>You'll get 3 short emails over the next week — one with the report, one a few days later with our story, and one with the three ways we typically work with players. After that, nothing unless you reach out.</p>
+        </details>
+        <details>
+          <summary>Are you actually an agent?</summary>
+          <p>Players Lab Mgmt is a football-first athlete representation group. We sign 1-3 players a month. Representation is a written agreement, not something we assume from a free report. The report doesn't make us your representative — only a signed agreement does.</p>
+        </details>
+        <details>
+          <summary>What if I'm not at a "name" school?</summary>
+          <p>Good. That's exactly who this is built for. Most of the players we represent are at G5, FCS, or buried on a Power-4 depth chart. The whole point is that the market undervalues them — and the report is what closes that gap.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="form-section fade-in">
+    <div class="container-tight">
+      <h2 class="section-h">YOUR FREE FOOTBALL POSITIONING REPORT</h2>
+      <p class="section-sub">About 6 minutes. We respond within 48 hours. Free, always.</p>
+      <div class="risk-reversal">
+        <div>
+          <strong>NO CARD. NO CATCH. NO UPSELL.</strong>
+          If you submit your tape and we don't think we can write you a useful report, we'll email you and tell you that — and we won't add you to any sequence. Free always means free here.
+        </div>
+      </div>
+      <div class="form-embed">
+        <!-- TALLY EMBED GOES HERE -->
+        <!-- Replace the placeholder div below with your Tally embed code from tally.so -->
+        <div class="form-embed-placeholder">
+          <p style="margin: 0 0 8px; font-weight: 600; color: var(--navy);">Form embed slot</p>
+          <p style="margin: 0;">Paste your Tally embed code in <code>index.html</code> where this placeholder lives (search for <code>TALLY EMBED GOES HERE</code>).</p>
+        </div>
+        <!-- END TALLY EMBED -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container-tight">
+    <p><strong style="color: rgba(255,255,255,0.95); font-family: 'Bebas Neue'; letter-spacing: 0.06em;">DISCLAIMER.</strong> This report is informational only. It is not legal, financial, or athletic-eligibility advice and does not guarantee any outcome including NIL earnings, recruitment, transfer placement, or representation. NIL rules vary by state, school, conference, and NCAA policy. Confirm any plan with your school's compliance office before acting. Players Lab Mgmt is not your representative unless and until a written representation agreement is signed.</p>
+    <p><strong style="color: rgba(255,255,255,0.95); font-family: 'Bebas Neue'; letter-spacing: 0.06em;">PLAYERS UNDER 18.</strong> If you are under 18, a parent or guardian must complete the consent step on the intake form before we generate a report.</p>
+    <div class="copyright">
+      <span>© 2026 Players Lab Mgmt · Powered by BIP's List</span>
+      <span class="socials">
+        <a href="https://x.com/bip_plm_devinb" target="_blank" rel="noopener">X / @bip_plm_devinb</a>
+        <a href="https://www.instagram.com/bip_plm_devinb" target="_blank" rel="noopener">IG / @bip_plm_devinb</a>
+        <a href="https://www.bipslist.com" target="_blank" rel="noopener">bipslist.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-mobile-cta">
+  <a href="#form">GET MY FREE REPORT →</a>
+</div>
+
+<script>
+  // Lightweight scroll-triggered fade-in (uses IntersectionObserver, ~1KB no library)
+  (function() {
+    var els = document.querySelectorAll('.fade-in');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '-50px 0px', threshold: 0.05 });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
